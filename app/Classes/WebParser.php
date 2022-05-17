@@ -33,8 +33,15 @@ class WebParser
     public function parse($url)
     {
         $data = [];
-        $this->html = HtmlDomParser::file_get_html($url);
-        $this->url = $url;
+
+        try{    
+            $this->html = HtmlDomParser::file_get_html($url);
+            $this->url = $url;
+
+        } catch (\Throwable $th) {
+            return 'Invalid URL';
+            exit;
+        }
         
         $links = $this->resource('a', 'href');
         $images = $this->resource('img', 'src');
