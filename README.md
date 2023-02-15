@@ -1,5 +1,3 @@
-Webparser
-
 ## Installation
 
 Type the following instructions in terminal to install required dependencies.
